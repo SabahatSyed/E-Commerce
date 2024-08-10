@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { Suspense, useContext, useEffect, useState } from "react";
 import { ChevronDown } from "react-feather";
 
 import ProductList from "@/app/ui/ProductList";
@@ -19,7 +19,7 @@ const sortOptions = [
   "price: high to low",
 ];
 
-export default function ProductsPage() {
+function ProductsPageComponent() {
   const { state: cartState, dispatch: cartDispatch } = useCart();
   const { state: user, dispatch: userDispatch } = useUser();
   const searchparams = useSearchParams();
@@ -107,5 +107,13 @@ export default function ProductsPage() {
         <ProductList products={products} onAddToCart={addToCart} />
       </Container>
     </main>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsPageComponent />
+    </Suspense>
   );
 }
