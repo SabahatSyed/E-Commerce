@@ -3,7 +3,7 @@ import { useUser } from "@/app/context/UserContext";
 import { useEffect, useState } from "react";
 import api from "@/utils/fetchData";
 import Container from "./container";
-import AdminView from "./adminview";
+import AdminView from "./AdminView";
 import clsx from "clsx";
 import BrandView from "./brandview";
 
