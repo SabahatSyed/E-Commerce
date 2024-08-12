@@ -32,7 +32,7 @@ export default function Navbar() {
       className={clsx(
         "w-full flex flex-wrap justify-between items-center",
         "sticky top-0 z-40 py-3 px-4",
-        "bg-gray-200/90 border-b border-gray-300",
+        "bg-[#262D3E] border-b border-[#262D3E]",
         "backdrop-filter backdrop-blur-lg shadow-sm",
         "md:(py-1)"
       )}
@@ -65,7 +65,7 @@ export default function Navbar() {
             user={user}
             onLogout={() => {
               api.logoutUser();
-              handleLogout()
+              handleLogout();
             }}
           />
         )}

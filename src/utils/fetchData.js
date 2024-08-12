@@ -156,12 +156,13 @@ async function fetchProduct(id) {
   return await resp.json();
 }
 
-async function proceedCheckout() {
+async function proceedCheckout(products) {
   const resp = await fetch(API_URL + "/checkout/payment", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: getAccessToken(),
     },
+    body: JSON.stringify({products}),
   });
   return await resp.json();
 }

@@ -6,6 +6,7 @@ import Container from "./container";
 import AdminView from "./AdminView";
 import clsx from "clsx";
 import BrandView from "./brandview";
+import { uploadImageToCloudinary } from "@/utils/uploadImage";
 
 export default function AccountPage() {
   const { state: user } = useUser();
@@ -62,7 +63,17 @@ export default function AccountPage() {
   };
   const handleAddProduct = async (data) => {
     try {
-      await api.handleAddProduct(user.user.id, data);
+      const imageUrls = await Promise.all(
+        data.images.map(uploadImageToCloudinary)
+      );
+
+      // Prepare the product data to be sent to the backend
+      const productData = {
+        ...data,
+        images: imageUrls, // Use the image URLs instead of the file objects
+      };
+
+      await api.handleAddProduct(user.user.id, productData);
     } catch (error) {
       console.error("Error adding product:", error);
     }
