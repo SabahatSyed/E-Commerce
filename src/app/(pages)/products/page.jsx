@@ -15,10 +15,16 @@ import axios from "axios";
 import ProductsGrid from "@/app/components/ProductsGrid";
 
 const sortOptions = [
-  "popular",
-  "new",
-  "price: low to high",
-  "price: high to low",
+  "Shirts",
+  "Trousers",
+  "Shoes",
+];
+
+const sort1Options = [
+  "All",
+  "Under $50",
+  "$50-$200",
+  "above $200"
 ];
 
 function ProductsPageComponent() {
@@ -120,35 +126,9 @@ function ProductsPageComponent() {
       <Container
         heading={`Products${category ? " for: " + category : ""}`}
         type="page">
-        <section className="flex justify-end pb-10 bg-white">
-          <div className="relative" ref={dropDownRef}>
-            <span className="font-bold text-black">Sort by:</span>
-            <Button
-              secondary
-              onClick={() => setShowSortOptions((prev) => !prev)}>
-              {sortOptions[sort]} <ChevronDown className="ml-2" />
-            </Button>
-
-            {showSortOptions && (
-              <DropDown
-                className="mt-10 inset-x-0"
-                onClick={() => setShowSortOptions(false)}>
-                <Select>
-                  {sortOptions.map((option, i) => (
-                    <Option key={option} onClick={() => setSort(i)}>
-                      {option}
-                    </Option>
-                  ))}
-                </Select>
-              </DropDown>
-            )}
-          </div>
-        </section>
+      
         {products.length > 0 ? (
-          <ProductsGrid
-            products={products}
-            onAddToCart={addToCart}
-          />
+          <ProductsGrid products={products} onAddToCart={addToCart} />
         ) : (
           <div className="flex gap-20 items-center p-20 mx-auto">
             <p className="text-xl text-black">Sorry No Products!!</p>

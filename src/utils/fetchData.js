@@ -250,6 +250,7 @@ async function handleSaveBrandInfo(id, brandInfo) {
       body: JSON.stringify({
         userId: id, // Assuming `user._id` is available in the context
         brandInfo,
+        brandApplied:true
       }),
     });
 
