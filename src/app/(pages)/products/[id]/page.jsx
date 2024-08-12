@@ -119,7 +119,7 @@ const ProductDetails = () => {
        });
      product.quantity -= quantity;
    };
-  if (!product) return <div>Loading...</div>;
+  if (!product) return <div className="min-h-screen w-full bg-white text-black m-auto">Loading...</div>;
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 bg-white">

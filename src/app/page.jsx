@@ -92,7 +92,7 @@ useEffect(() => {
               className="text-2xl font-extrabold tracking-tight text-gray-900">
               New Arrivals
             </h2>
-            <Link href={"/shop?sort=newest"} passHref>
+            <Link href={"/products"} passHref>
               <p className="hidden md:block text-sm font-semibold text-indigo-600 hover:text-indigo-500 cursor-pointer">
                 Browse all<span aria-hidden="true"> &rarr;</span>
               </p>
@@ -109,7 +109,7 @@ useEffect(() => {
           </div>
           }
           <div className="block md:hidden pb-10">
-            <Link href={"/shop?sort=newest"} passHref>
+            <Link href={"/products"} passHref>
               <p className="text-sm font-semibold text-indigo-600 hover:text-indigo-500 cursor-pointer">
                 Browse all<span aria-hidden="true"> &rarr;</span>
               </p>

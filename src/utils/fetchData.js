@@ -148,7 +148,7 @@ async function fetchProducts(category, newArrivals = false) {
   }`;
   console.log("ad", API_URL);
 
-  const resp = await fetch(API_URL + "/products?");
+  const resp = await fetch(API_URL + "/products");
   return await resp.json();
 }
 async function fetchProduct(id) {
