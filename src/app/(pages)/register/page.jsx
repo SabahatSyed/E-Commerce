@@ -13,7 +13,6 @@ export default function RegisterPage() {
   const { state: user, dispatch: userDispatch } = useUser();
   const { state: cart, dispatch: cartDispatch } = useCart();
   const navigate = useRouter();
-  console.log("user in reg",user)
   useEffect(() => {
     if (user?.user && user?.user?.email) {
       // If user is logged in, redirect to the dashboard
